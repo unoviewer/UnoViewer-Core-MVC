@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/REFERENCE_DLL/Uno.Files.Extensions.Net.Standard.2.0.dll
+/REFERENCE_DLL/Uno.Files.Options.Net.Standard.2.0.dll
+/REFERENCE_DLL/Uno.Files.Viewer.Net.Standard.2.0.dll
+/wwwroot/unoViewer/UnoViewer.xml.licx

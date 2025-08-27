@@ -6,3 +6,119 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+                    objUno.on('languageChanged', function (e) {
+                        // alert(e.langName);
+
+                        setTimeout(function () {
+
+                            $(".menuWord .unoText").html("Word");
+                            $(".menuExcel .unoText").html("Excel");
+                            $(".menuPowerPoint .unoText").html("PowerPoint");
+                            $(".menuPdf .unoText").html("PDF");
+
+                        }, 500);
+
+                    });
+
+                    objUno.on('themeChanged', function (e) {
+                        // alert(e.themeName);
+                    });
+
+                    objUno.on('viewerReady', function () {
+                        $("#imgWait").hide();
+                    });
+
+                    objUno.on('pinchEnd', function (e) {
+
+                        objUno.ZoomStep(20);
+
+                        if (e.zoomMode == "ZoomIn") {
+                            objUno.Zoom(true);
+                        }
+                        else {
+                            objUno.Zoom(false);
+                        }
+
+                        objUno.ZoomStep(10);
+                    });
+                 
+                    /* End attaching events */
+
+            }
+
+        }
+
+             function OpenFile(fileName) {
+
+             objUno.Close(true);
+             objUno.Loading(true);
+
+             setTimeout(function () { window.location.href = "default.aspx?file=" + fileName; }, 1000);
+             }
+
+             function SetContainerHeight() {
+                 if (resizing === true) { return; }
+
+                 resizing = true;
+
+                 setTimeout(function () {
+
+                     var h = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+                     $("#unoContainer").height(h - 100);
+
+                     resizing = false;
+
+                 }, 500);
+             }
+
+
+             function IsMobile() {
+                 var _isMobile = (window.navigator.maxTouchPoints || 'ontouchstart' in document);
+                 return _isMobile;
+             }
+
+
+             $(document).ready(function () {
+
+                 // Initialise then viewer first
+                 InitViewer();
+
+                 // Attach resize event
+                 $(window).on("load resize orientationchange", function () {
+                     SetContainerHeight();
+                 });
+
+                 // Prevent postback on enter key
+                 $(document).keypress(function (e) {
+                     if (e.keyCode === 13) {
+                         e.preventDefault();
+                         return false;
+                     }
+                 });
+
+                 // Change theme ( optional )
+                 objUno.ThemeFile("dark.json");
+
+                 // Hide thumbnails when mobile ( optional )
+
+                 if (isMobile) {
+                     objUno.ShowThumbnails(false);
+                 }
+
+                 $(".menuWord .unoText").html("Word");
+                 $(".menuExcel .unoText").html("Excel");
+                 $(".menuPowerPoint .unoText").html("PowerPoint");
+                 $(".menuPdf .unoText").html("PDF");
+
+                 $(".menuWord").on("click", function () { OpenFile("Sample.docx"); });
+                 $(".menuExcel").on("click", function () { OpenFile("Sample.xls"); });
+                 $(".menuPowerPoint").on("click", function () { OpenFile("Sample.ppt"); });
+                 $(".menuPdf").on("click", function () { OpenFile("Sample.pdf"); });
+
+              });
+
+
+    </script>
+
+}
