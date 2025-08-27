@@ -1,0 +1,25 @@
+﻿@media screen and (max-width: 800px) {
+    .unoMobileMenu {
+        display: inline-block;
+    }
+
+    .unoDesktopMenu {
+        display: none;
+    }
+
+    .docSearchBox {
+        position: absolute;
+        left: 5%;
+        top: 5%;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .unoMobileMenu {
+        display: none;
+    }
+
+    .unoDesktopMenu {
+        display: -webkit-inline-box;
+    }
+}

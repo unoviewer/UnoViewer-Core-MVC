@@ -7,4 +7,50 @@
     <RootNamespace>UnoViewer_Core_MVC</RootNamespace>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="bblanchon.PDFium.Win32" Version="130.0.6721" />
+		<PackageReference Include="HarfBuzzSharp" Version="8.3.1.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.2" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Win32.Primitives" Version="4.3.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+		<PackageReference Include="SkiaSharp" Version="3.119.0" />
+		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.0" />
+		<PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="3.119.0" />
+		<PackageReference Include="System.Buffers" Version="4.5.1" />
+		<PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
+		<PackageReference Include="System.ComponentModel" Version="4.3.0" />
+		<PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+		<PackageReference Include="System.Memory" Version="4.5.5" />
+		<PackageReference Include="System.Net.Requests" Version="4.3.0" />
+		<PackageReference Include="System.Reflection.TypeExtensions" Version="4.5.0" />
+		<PackageReference Include="System.Runtime.Extensions" Version="4.3.0" />
+		<PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="4.7.0" />
+		<PackageReference Include="System.Security.Permissions" Version="4.7.0" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+		<PackageReference Include="System.Xml.XPath.XmlDocument" Version="4.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Uno.Files.Extensions.Net.Standard.2.0">
+	    <HintPath>REFERENCE_DLL\Uno.Files.Extensions.Net.Standard.2.0.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Uno.Files.Options.Net.Standard.2.0">
+	    <HintPath>REFERENCE_DLL\Uno.Files.Options.Net.Standard.2.0.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Uno.Files.Viewer.Net.Standard.2.0">
+	    <HintPath>REFERENCE_DLL\Uno.Files.Viewer.Net.Standard.2.0.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\js\" />
+	</ItemGroup>
+	
 </Project>

@@ -1,0 +1,248 @@
+:root {
+    --menu-font: Verdana;
+    --menu-font-size: 10px;
+    --menu-background: lightgrey;
+    --menu-background-hover: whitesmoke;
+    --menu-text: black;
+    --menu-text-hover: blue;
+    --menu-icon: red;
+    --menu-icon-width: 1;
+    --menu-icon-hover: red;
+    --submenu-background: lightgrey;
+    --submenu-background-hover: whitesmoke;
+    --submenu-shadow: gray;
+    --submenu-width: 150px;
+    --submenu-top: 37px;
+}
+
+.unoNavbar {
+    overflow: auto;
+    overflow-x: visible;
+    overflow-y: hidden;
+    background-color: var(--menu-background);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--menu-text);
+    font-family: var(--menu-font);
+    font-size: var(--menu-font-size);
+    width: 100%;
+}
+
+    .unoNavbar svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .unoNavbar path {
+        stroke: var(--menu-icon);
+        stroke-width: var(--menu-icon-width);
+    }
+
+    .unoNavbar rect {
+        stroke: var(--menu-icon);
+        stroke-width: var(--menu-icon-width);
+    }
+
+    .unoNavbar line {
+        stroke: var(--menu-icon);
+        stroke-width: var(--menu-icon-width);
+    }
+
+    .unoNavbar polyline {
+        stroke: var(--menu-icon);
+        stroke-width: var(--menu-icon-width);
+    }
+
+    .unoNavbar circle {
+        stroke: var(--menu-icon);
+        stroke-width: var(--menu-icon-width);
+    }
+
+    .unoNavbar polygon {
+        stroke: var(--menu-icon);
+        stroke-width: var(--menu-icon-width);
+    }
+
+
+    .unoNavbar a {
+        float: left;
+        text-decoration: none;
+        padding: 5px;
+        color: var(--menu-text);
+    }
+
+    .unoNavbar .invisible {
+        display: none;
+    }
+
+    .unoNavbar a:hover, .unoSubnav:hover .unoSubnavBtn {
+        background-color: var(--menu-background-hover);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 2px 2px 3px var(--submenu-shadow) inset;
+        color: var(--menu-text-hover);
+    }
+
+    .unoNavbar a i {
+        margin-right: 5px;
+    }
+
+
+    .unoNavbar .unoIcon {
+        width: 25px;
+        height: 25px;
+        pointer-events: none;
+        float: left;
+        margin-right: 5px;
+    }
+
+
+    .unoNavbar .unoIconArrow {
+        width: 25px;
+        height: 25px;
+        pointer-events: none;
+        float: left;
+    }
+
+    .unoNavbar .unoIconRight {
+        float: right;
+        margin-top: 2px;
+    }
+
+
+    .unoNavbar .unoText {
+        float: right;
+        margin-top: 4px;
+    }
+
+
+.unoSubnav {
+    float: left;
+    overflow: hidden;
+}
+
+    .unoSubnav:hover .unoSubnav-content {
+        display: flex;
+        border-radius: 5px;
+        flex-direction: column;
+    }
+
+    .unoSubnav .unoSubnavBtn {
+        border: none;
+        outline: none;
+        background-color: inherit;
+        margin: 0;
+        cursor: pointer;
+        display: flex;
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+
+        .unoSubnav .unoSubnavBtn i {
+            margin-left: 5px;
+        }
+
+
+.unoSubnavBtn svg {
+    width: 100%;
+    height: 100%;
+}
+
+.unoSubnavBtn path {
+    stroke: var(--menu-icon);
+}
+
+.unoSubnavBtn rect {
+    stroke: var(--menu-icon);
+}
+
+.unoSubnavBtn circle {
+    stroke: var(--menu-icon);
+}
+
+.unoSubnavBtn line {
+    stroke: var(--menu-icon);
+}
+
+
+.unoSubnavBtn:hover path {
+    stroke: var(--menu-icon-hover);
+}
+
+.unoSubnavBtn:hover rect {
+    stroke: var(--menu-icon-hover);
+}
+
+.unoSubnavBtn:hover circle {
+    stroke: var(--menu-icon-hover);
+}
+
+.unoSubnavBtn:hover line {
+    stroke: var(--menu-icon-hover);
+}
+
+.unoSubnavBtn:hover polygon {
+    stroke: var(--menu-icon-hover);
+}
+
+.unoSubnav-content {
+    display: none;
+    position: absolute;
+    background-color: var(--submenu-background);
+    z-index: 99;
+    margin-top: -5px;
+    margin-left: 2px;
+    box-shadow: 2px 2px 3px var(--submenu-shadow);
+    min-width: var(--submenu-width);
+    top: var(--submenu-top);
+}
+
+    .unoSubnav-content a {
+        float: left;
+        color: var(--menu-text);
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+
+    .unoSubnav-content .unoText {
+        float: left;
+        margin-left: 10px;
+    }
+
+.menuItem {
+    float: left;
+    user-select: none;
+}
+
+
+    .menuItem:hover path {
+        stroke: var(--menu-icon-hover);
+    }
+
+    .menuItem:hover rect {
+        stroke: var(--menu-icon-hover);
+    }
+
+    .menuItem:hover circle {
+        stroke: var(--menu-icon-hover);
+    }
+
+    .menuItem:hover line {
+        stroke: var(--menu-icon-hover);
+    }
+
+    .menuItem:hover polygon {
+        stroke: var(--menu-icon-hover);
+    }
+
+
+.gotoPage {
+    border-radius: 4px;
+    border: 1px solid var(--menu-background);
+    margin: 5px;
+    padding: 5px;
+}

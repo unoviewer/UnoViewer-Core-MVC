@@ -1,7 +1,13 @@
+using Uno.Files.Options.Viewer;
+using Uno.Files.Viewer.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddMemoryCache();
+
 
 var app = builder.Build();
 
@@ -13,6 +19,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -23,5 +30,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapWhen(context => context.Request.Path.ToString().EndsWith("UnoImage.axd"),
+                appBranch =>
+                {
+                    appBranch.UseUnoViewer(new UnoViewOptions { UnSafe = false, ShowInfo = false });
+                }
+           );
 
 app.Run();

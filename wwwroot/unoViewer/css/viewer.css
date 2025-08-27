@@ -1,0 +1,568 @@
+﻿:root {
+    /*---------Main ----------*/
+    --doc-background: #EBEBEB;
+    --doc-border: #CCC;
+    /*-------- Menu ------------*/
+    --doc-menu-height: 35px;
+    /*---------Thumb ----------*/
+    --doc-thumb-border: #dcdcdc;
+    --doc-thumb-border-hover: #888888;
+    --doc-thumb-background: #ffffff;
+    --doc-thumb-shadow: #888888;
+    --doc-thumb-focus: #299ef2;
+    /*---------Thumb Slider ----------*/
+    --doc-thumb-slider: lightgrey;
+    --doc-thumb-slider-thumb: grey;
+    /*---------Thumb Label ----------*/
+    --doc-thumb-label-font: Verdana;
+    --doc-thumb-label-font-size: 12px;
+    --doc-thumb-label-focus: #299ef2;
+    /*---------Page ----------*/
+    --doc-page-border: #dcdcdc;
+    --doc-page-border-hover: #888888;
+    --doc-page-background: #ffffff;
+    --doc-page-shadow: #888888;
+    --doc-page-focus: #299ef2;
+    --doc-page-animation-time: 0.50s;
+    /*---------Splitter ----------*/
+    --doc-split-background: whitesmoke;
+    --doc-split-border: #CDCDCD;
+    /*---------Scroll ----------*/
+    --doc-scroll-track: grey;
+    --doc-scroll-thumb: #cdcdcd;
+    --doc-scroll-thumb-hover: #cdcdcd;
+    /*---------Page Status-------*/
+    --doc-page-status-font: Verdana;
+    --doc-page-status-font-size: 14px;
+    --doc-page-status: grey;
+    --doc-page-status-text: white;
+    --doc-page-status-border: black;
+    /*---------Tooltip----------*/
+    --doc-tooltip-background: #fce795;
+    --doc-tooltip-border: #ccc;
+    --doc-tooltip-text: black;
+    --doc-tooltip-shadow: #888888;
+    --doc-tooltip-font: Verdana;
+    /*---------Search----------*/
+    --doc-search-background: grey;
+    --doc-search-color: white;
+    --doc-search-button-color: black;
+    --doc-search-font: Verdana;
+    --doc-search-font-size: 12px;
+    --doc-search-button-background: whitesmoke;
+    /*----------Select---------*/
+    --doc-text-selection: skyblue;
+    /*---------Auto Scroll ----------*/
+    --doc-autoscroll-background: grey;
+    --doc-autoscroll-color: white;
+    --doc-autoscroll-button-color: black;
+    --doc-autoscroll-font: Verdana;
+    --doc-autoscroll-font-size: 12px;
+    --doc-autoscroll-button-background: whitesmoke;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.docMain {
+    border: solid 1px var(--doc-border);
+    border-radius: 6px;
+    background-color: var(--doc-background);
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: top left;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+    .docMain div::-webkit-scrollbar {
+        background: var(--doc-scroll-track);
+        width: 10px;
+        height: 10px;
+        border-radius: 8px;
+    }
+
+    .docMain div::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px var(--doc-scroll-thumb);
+        border-radius: 8px;
+    }
+
+
+    .docMain div::-webkit-scrollbar-thumb {
+        background: var(--doc-scroll-thumb);
+        border-radius: 8px;
+    }
+
+        .docMain div::-webkit-scrollbar-thumb:hover {
+            background: var(--doc-scroll-thumb-hover);
+        }
+
+
+.docLeftPane {
+    overflow: hidden;
+    float: left;
+    width: 210px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -ms-user-select: none;    
+}
+
+.thumbToolbar {
+    width: 100%;
+    height: var(--doc-menu-height);
+    top: 0px;
+    left: 0px;
+    border-bottom: 1px solid var(--doc-border);
+    box-shadow: 2px 2px var(--doc-thumb-border);
+    display: flex;
+    align-items: center;
+}
+
+.thumbSlider {
+    display: inline-block;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    background: var(--doc-thumb-slider);
+    border-radius: 2px;
+    margin: 5px;
+}
+
+    .thumbSlider:hover {
+        opacity: 1;
+    }
+
+    .thumbSlider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        background: var(--doc-thumb-slider-thumb);
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+.thumbScroll {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 2px 2px 2px var(--doc-thumb-shadow);
+    padding-bottom: 20px;
+}
+
+.docThumbContainer {
+    margin: 10px;
+    float: left;
+    transition: all 0.25s linear;
+    margin-bottom: 30px;
+    pointer-events: auto;
+}
+
+.docThumb {
+    border: 2px solid var(--doc-thumb-border);
+    cursor: inherit;
+    background-color: var(--doc-thumb-background);
+    box-shadow: 2px 2px 2px var(--doc-thumb-shadow);
+    border-radius: 4px;
+    background-size: 20%;
+    max-width: none;
+    width: inherit;
+    height: inherit;
+    display: inline-block;
+}
+
+.docThumbLabel {
+    text-align: center;
+    font-family: var(--doc-thumb-label-font);
+    font-size: var(--doc-thumb-label-font-size);
+    margin-top: 5px;
+}
+
+.docThumbHover {
+    border-color: var(--doc-thumb-border-hover);
+}
+
+.docThumbFocussed {
+    border: 2px solid var(--doc-thumb-focus);
+}
+
+.docLabelFocussed {
+    font-weight: bold;
+    color: var(--doc-thumb-label-focus);
+}
+
+.docRightPane {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    scrollbar-base-color: var(--scroll);
+    scrollbar-3dlight-color: var(--scroll);
+    scrollbar-shadow-color: var(--scroll);
+}
+
+.pageToolbar {
+    min-height: var(--doc-menu-height);
+    max-height: var(--doc-menu-height);
+    background-color: var(--doc-background);
+    border-bottom: 1px solid var(--doc-border);
+    /*box-shadow: 2px 2px var(--doc-page-border);*/
+    z-index:999;
+}
+
+
+.docScrollPane {
+    transition: all 0.25s linear;
+    transform-origin: left top;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+}
+
+.docScrollPaneMultiple {
+    display: block;
+}
+
+.docScrollPaneSingle {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+
+.docPageContainer {
+    transition: all var(--doc-page-animation-time) linear;
+    transform-origin: 50% 50%;
+}
+
+
+.docPageContainerMultiple {
+    display: inline-block;
+    margin: 20px;
+}
+
+.docPageContainerSingle {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.docFooter {
+    pointer-events: none;
+    position: absolute;
+    transition: all 0.25s linear;
+    font-family: var(--doc-page-status-font);
+    font-size: var(--doc-page-status-font-size);
+}
+
+    .docFooter span {
+        display: none;
+        background-color: var(--doc-page-status);
+        opacity: 0.60;
+        border-radius: 6px;
+        border: solid 1px var(--doc-page-status-border);
+        color: var(--doc-page-status-text);
+        font-weight: bold;
+        padding: 5px 15px 5px 15px;
+        margin: 5px;
+    }
+
+
+
+.docPage {
+    border: 2px solid var(--doc-page-border);
+    background-color: var(--doc-page-background);
+    box-shadow: 4px 4px 4px var(--doc-page-shadow);
+    border-radius: 4px;
+    cursor: inherit;
+    max-width: none;
+    background-size: 10%;
+}
+
+    .docPage::selection {
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .docPage::-moz-selection {
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .docPage::-webkit-selection {
+        background-color: transparent;
+        color: transparent;
+    }
+
+
+.docPageHover {
+    border-color: var(--doc-page-border-hover);
+}
+
+.docPageFocussed {
+    box-shadow: 2px 2px 2px var(--doc-page-focus);
+}
+
+.docToolTip {
+    background-color: var(--doc-tooltip-background);
+    border: solid 1px var(--doc-tooltip-border);
+    font-size: 11px;
+    color: var(--doc-tooltip-text);
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    text-align: center;
+    box-shadow: 2px 2px 2px var(--doc-tooltip-shadow);
+    vertical-align: middle;
+    font-family: var(--doc-tooltip-font);
+    pointer-events: none;
+    padding-top: 2px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.docToolTipThumb {
+    width: 50px;
+}
+
+.docUnselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+.docLoading {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 200px;
+}
+
+.grab {
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.grabbing {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.docSearch {
+    border: solid 1px #ccc;
+    opacity: 0.5;
+    border-radius: 4px;
+}
+
+.docSearchPage {
+    pointer-events: none;
+}
+
+.docLinksPage {
+    pointer-events: none;
+}
+
+.doclink {
+    /*  border: 1px solid red; */
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.docTextsPage {
+    pointer-events: auto;
+    display:inline-block;
+}
+
+    .docTextsPage::selection {
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .docTextsPage::-moz-selection {
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .docTextsPage::-webkit-selection {
+        background-color: transparent;
+        color: transparent;
+    }
+
+
+.docTextsPageDisabled {
+    pointer-events: none;
+}
+
+.docText {
+    color: transparent;
+    cursor: text;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.20;
+    pointer-events: inherit;
+    white-space: nowrap;
+}
+
+    .docText::selection {
+        background-color: var(--doc-text-selection);
+    }
+
+.docTextSpace {
+    display: inline-block;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+    .docTextSpace::selection {
+        color: transparent;
+        background-color: var(--doc-text-selection);
+    }
+
+.docTextBr {
+    display: inline;
+    white-space: nowrap;
+    pointer-events: none;
+    max-width: 1px;
+}
+
+    .docTextBr::selection {
+        display: none;
+        color: transparent;
+        background-color: transparent;
+    }
+
+/* Split */
+.split {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.gutter {
+    background-color: var(--doc-split-background);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-left: 1px solid var(--doc-split-border);
+    border-right: 1px solid var(--doc-split-border);
+}
+
+    .gutter.gutter-horizontal {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+        cursor: col-resize;
+    }
+
+
+.docSearchBox {
+    position: absolute;
+    display: none;
+    right: 10%;
+    top: 10%;
+    width: 220px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--doc-search-background);
+    color: var(--doc-search-color);
+    font-family: var(--doc-search-font);
+    font-size: var(--doc-search-font-size);
+    border: 1px solid var(--doc-search-button-background);
+    cursor: move;
+}
+
+    .docSearchBox .docSearchText {
+        margin: 5px;
+        width: 90%;
+        border: 1px solid var(--doc-search-button-background);
+    }
+
+    .docSearchBox .docSearchWholeWord {
+    }
+
+    .docSearchBox .docSearchWholeWordLabel {
+    }
+
+    .docSearchBox .docSearchMatchCase {
+    }
+
+    .docSearchBox .docSearchMatchCaseLabel {
+    }
+
+
+    .docSearchBox .docSearchButton {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        padding: 5px;
+        border-width: 0px;
+        border-radius: 3px;
+        color: var(--doc-search-button-color);
+        background-color: var(--doc-search-button-background);
+        cursor: pointer;
+        width: 50px;
+    }
+
+    .docSearchBox .docSearchMessage {
+        font-size: calc(var(--doc-search-font-size) - 2);
+        margin: 5px;
+    }
+
+
+.docAutoScroll {
+    position: absolute;
+    display: none;
+    right: 10%;
+    top: 10%;
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--doc-autoscroll-background);
+    color: var(--doc-autoscroll-color);
+    font-family: var(--doc-autoscroll-font);
+    font-size: var(--doc-autoscroll-font-size);
+    border: 1px solid var(--doc-autoscroll-button-background);
+    cursor: move;
+}
+
+    .docAutoScroll .docAutoScrollButton {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        padding: 5px;
+        border-width: 0px;
+        border-radius: 3px;
+        color: var(--doc-search-button-color);
+        background-color: var(--doc-search-button-background);
+        cursor: pointer;
+        width:50px;
+    }
+
+    .docAutoScroll .docAutoScrollSlider {
+        display: inline-block;
+        appearance: none;
+        height: 5px;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        color: var(--doc-search-button-color);
+        border-radius: 2px;
+        accent-color: white;
+    }

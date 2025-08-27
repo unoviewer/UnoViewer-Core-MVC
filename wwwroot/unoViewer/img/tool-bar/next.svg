@@ -1,0 +1,5 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.cls-1{stroke:#abb0c4;fill:transparent}</style></defs>
+<circle  class="cls-1" cx="12" cy="12" r="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="cls-1" d="M17 12H7M17 12L13 8M17 12L13 16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
