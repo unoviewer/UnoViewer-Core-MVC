@@ -1,9 +1,7 @@
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using SkiaSharp;
-using System;
 using System.Diagnostics;
+using SkiaSharp;
 
 using Uno.Files.Options;
 using Uno.Files.Options.Viewer;
