@@ -20,4 +20,4 @@ https://blazor.unoviewer.com
 
 ## Docker Linux
 
-http://docket.unoviewer.com
+http://docker.unoviewer.com
