@@ -59,6 +59,7 @@
     --doc-autoscroll-font: Verdana;
     --doc-autoscroll-font-size: 12px;
     --doc-autoscroll-button-background: whitesmoke;
+    --doc-autoscroll-slider-thumb: whitesmoke;
 }
 
 html {
@@ -112,7 +113,7 @@ html {
     flex-direction: column;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
-    -ms-user-select: none;    
+    -ms-user-select: none;
 }
 
 .thumbToolbar {
@@ -136,6 +137,7 @@ html {
     -webkit-transition: .2s;
     transition: opacity .2s;
     background: var(--doc-thumb-slider);
+    margin: 10px;
     border-radius: 2px;
     margin: 5px;
 }
@@ -220,7 +222,7 @@ html {
     background-color: var(--doc-background);
     border-bottom: 1px solid var(--doc-border);
     /*box-shadow: 2px 2px var(--doc-page-border);*/
-    z-index:999;
+    z-index: 999;
 }
 
 
@@ -324,7 +326,7 @@ html {
     font-size: 11px;
     color: var(--doc-tooltip-text);
     width: 100px;
-    height: 30px;
+    height: 20px;
     position: absolute;
     text-align: center;
     box-shadow: 2px 2px 2px var(--doc-tooltip-shadow);
@@ -388,7 +390,7 @@ html {
 
 .docTextsPage {
     pointer-events: auto;
-    display:inline-block;
+    display: inline-block;
 }
 
     .docTextsPage::selection {
@@ -471,7 +473,7 @@ html {
     }
 
 
-.docSearchBox {
+.unoSearchBox {
     position: absolute;
     display: none;
     right: 10%;
@@ -487,27 +489,26 @@ html {
     cursor: move;
 }
 
-    .docSearchBox .docSearchText {
+    .unoSearchBox .unoSearchText {
         margin: 5px;
         width: 90%;
         border: 1px solid var(--doc-search-button-background);
     }
 
-    .docSearchBox .docSearchWholeWord {
+    .unoSearchBox .unoSearchWholeWord {
     }
 
-    .docSearchBox .docSearchWholeWordLabel {
+    .unoSearchBox .unoSearchWholeWordLabel {
     }
 
-    .docSearchBox .docSearchMatchCase {
+    .unoSearchBox .unoSearchMatchCase {
     }
 
-    .docSearchBox .docSearchMatchCaseLabel {
+    .unoSearchBox .unoSearchMatchCaseLabel {
     }
 
-
-    .docSearchBox .docSearchButton {
-        margin-top: 5px;
+    .unoSearchBox .unoSearchButton {
+        margin-top: 10px;
         margin-left: 5px;
         margin-bottom: 5px;
         padding: 5px;
@@ -516,21 +517,21 @@ html {
         color: var(--doc-search-button-color);
         background-color: var(--doc-search-button-background);
         cursor: pointer;
-        width: 50px;
+        width: 60px;
     }
 
-    .docSearchBox .docSearchMessage {
+    .unoSearchBox .docSearchMessage {
         font-size: calc(var(--doc-search-font-size) - 2);
         margin: 5px;
     }
 
 
-.docAutoScroll {
+.unoAutoScroll {
     position: absolute;
     display: none;
     right: 10%;
     top: 10%;
-    width: 150px;
+    width: 160px;
     padding: 10px;
     border-radius: 5px;
     background-color: var(--doc-autoscroll-background);
@@ -541,7 +542,7 @@ html {
     cursor: move;
 }
 
-    .docAutoScroll .docAutoScrollButton {
+    .unoAutoScroll .unoAutoScrollButton {
         margin-top: 5px;
         margin-left: 5px;
         margin-bottom: 5px;
@@ -551,10 +552,11 @@ html {
         color: var(--doc-search-button-color);
         background-color: var(--doc-search-button-background);
         cursor: pointer;
-        width:50px;
+        width: 55px;
     }
 
-    .docAutoScroll .docAutoScrollSlider {
+    .unoAutoScroll .unoAutoScrollSlider {
+        margin: 10px;
         display: inline-block;
         appearance: none;
         height: 5px;
@@ -566,3 +568,13 @@ html {
         border-radius: 2px;
         accent-color: white;
     }
+
+        .unoAutoScroll .unoAutoScrollSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            background: var(--doc-autoscroll-slider-thumb);
+            cursor: pointer;
+            border-radius: 6px;
+        }

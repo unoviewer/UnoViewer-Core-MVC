@@ -76,6 +76,7 @@
     "doc-autoscroll-button-color": "black",
     "doc-autoscroll-font": "Calibri",
     "doc-autoscroll-font-size": "12px",
-    "doc-autoscroll-button-background": "whitesmoke"
+    "doc-autoscroll-button-background": "whitesmoke",
+    "doc-autoscroll-slider-thumb":  "lime"
   }
 }

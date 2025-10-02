@@ -7,6 +7,13 @@
     <RootNamespace>UnoViewer_Core_MVC</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\js\**" />
+    <Content Remove="wwwroot\js\**" />
+    <EmbeddedResource Remove="wwwroot\js\**" />
+    <None Remove="wwwroot\js\**" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="bblanchon.PDFium.Win32" Version="130.0.6721" />
 		<PackageReference Include="HarfBuzzSharp" Version="8.3.1.1" />
@@ -47,10 +54,6 @@
 	  <Reference Include="Uno.Files.Viewer.Net.Standard.2.0">
 	    <HintPath>REFERENCE_DLL\Uno.Files.Viewer.Net.Standard.2.0.dll</HintPath>
 	  </Reference>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="wwwroot\js\" />
 	</ItemGroup>
 	
 </Project>
