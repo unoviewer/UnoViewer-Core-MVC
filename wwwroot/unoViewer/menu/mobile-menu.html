@@ -1,4 +1,4 @@
-﻿<div class="unoMobileMenu">
+﻿<div id="MNU_ID" class="unoMobileMenu">
     <div class="unoBurger js-menuToggle">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="5" y1="7" x2="19" y2="7" stroke-linecap="round" stroke-linejoin="round" />
@@ -109,9 +109,9 @@
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  width="800px" height="800px" viewBox="0 0 56 64" enable-background="new 0 0 56 64" xml:space="preserve">
                             <g>
-                                                        <path fill="#8C181A" d="M5.1,0C2.3,0,0,2.3,0,5.1v53.8C0,61.7,2.3,64,5.1,64h45.8c2.8,0,5.1-2.3,5.1-5.1V20.3L37.1,0H5.1z" />
-                                                        <path fill="#6B0D12" d="M56,20.4v1H43.2c0,0-6.3-1.3-6.1-6.7c0,0,0.2,5.7,6,5.7H56z" />
-                                                        <path opacity="0.5" fill="#FFFFFF" enable-background="new    " d="M37.1,0v14.6c0,1.7,1.1,5.8,6.1,5.8H56L37.1,0z" />
+                            <path fill="#8C181A" d="M5.1,0C2.3,0,0,2.3,0,5.1v53.8C0,61.7,2.3,64,5.1,64h45.8c2.8,0,5.1-2.3,5.1-5.1V20.3L37.1,0H5.1z" />
+                            <path fill="#6B0D12" d="M56,20.4v1H43.2c0,0-6.3-1.3-6.1-6.7c0,0,0.2,5.7,6,5.7H56z" />
+                            <path opacity="0.5" fill="#FFFFFF" enable-background="new    " d="M37.1,0v14.6c0,1.7,1.1,5.8,6.1,5.8H56L37.1,0z" />
                             </g>
                             <path fill="#FFFFFF" d="M14.9,49h-3.3v4.1c0,0.4-0.3,0.7-0.8,0.7c-0.4,0-0.7-0.3-0.7-0.7V42.9c0-0.6,0.5-1.1,1.1-1.1h3.7
 	                            c2.4,0,3.8,1.7,3.8,3.6C18.7,47.4,17.3,49,14.9,49z M14.8,43.1h-3.2v4.6h3.2c1.4,0,2.4-0.9,2.4-2.3C17.2,44,16.2,43.1,14.8,43.1z
@@ -232,7 +232,7 @@
                     </a>
                 </li>
                 <li>
-                    <input type="number" min="1" class="gotoPage" id="mobGotoPage" autofocus="autofocus" step="1" style="display:none" />
+                    <input type="number" min="1" class="gotoPage" autofocus="autofocus" step="1" style="display:none" />
                 </li>
             </ul>
         </li>
@@ -765,51 +765,44 @@
 
     <script>
 
-        var $menuTrigger = $('.js-menuToggle');
-        var $topNav = $('.js-topUnoPushNav');
-        var $unoOpenLevel = $('.js-unoOpenLevel');
-        var $unoCloseLevel = $('.js-unoCloseLevel');
-        var $unoCloseLevelTop = $('.js-unoCloseLevelTop');
-        var $navLevel = $('.js-unoPushNavLevel');
-
-        function openUnoPushNav() {
-            $topNav.addClass('isOpen').css("overflow-y", "scroll");
+        function openUnoPushNav(menuID) {
+            $('#' + menuID + ' .js-topUnoPushNav').addClass('isOpen').css("overflow-y", "scroll");
         }
 
-        function closeUnoPushNav() {
-            $topNav.removeClass('isOpen');
-            $unoOpenLevel.siblings().removeClass('isOpen');
+        function closeUnoPushNav(menuID) {
+            $('#' + menuID + ' .js-topUnoPushNav').removeClass('isOpen');
+            $('#' + menuID + ' .js-unoOpenLevel').siblings().removeClass('isOpen');
         }
 
-        $menuTrigger.on('click touchstart', function (e) {
+        $('#MNU_ID .js-menuToggle').on('click touchstart', function (e) {
             e.preventDefault();
 
-            if ($topNav.hasClass('isOpen')) {
-                closeUnoPushNav();
+            if ($('#MNU_ID .js-topUnoPushNav').hasClass('isOpen')) {
+                closeUnoPushNav('MNU_ID');
             } else {
-                openUnoPushNav();
+                openUnoPushNav('MNU_ID');
             }
         });
 
-        $unoOpenLevel.on('click touchstart', function () {
-            $(this).next($navLevel).addClass('isOpen'); //.css("position", "fixed");
+        $('#MNU_ID .js-unoOpenLevel').on('click touchstart', function () {
+            $(this).next($('#MNU_ID .js-unoPushNavLevel')).addClass('isOpen');
         });
 
-        $unoCloseLevel.on('click touchstart', function () {
-            $(this).closest($navLevel).removeClass('isOpen');
+        $('#MNU_ID .js-unoCloseLevel').on('click touchstart', function () {
+            $(this).closest($('#MNU_ID .js-unoPushNavLevel')).removeClass('isOpen');
         });
 
-        $unoCloseLevelTop.on('click touchstart', function () {
-            closeUnoPushNav();
+        $('#MNU_ID .js-unoCloseLevelTop').on('click touchstart', function () {
+            closeUnoPushNav('MNU_ID');
         });
 
-        $('.autoClose').each(function () {
+        $('#DOC_ID .autoClose').each(function () {
             $(this).on('click touchstart', function () {
-                closeUnoPushNav();
+                closeUnoPushNav('MNU_ID');
             });
         });
 
-        setTimeout(function () { $("#mobGotoPage").show(); }, 3000);
+        setTimeout(function () { $("#DOC_ID .gotoPage").show(); }, 3000);
 
     </script>
 </div> 
